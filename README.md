@@ -59,7 +59,7 @@ giyas-umarov.com/
 - **8 languages** — English, Russian (Русский), Uzbek (O'zbek), French (Français), Spanish (Español), Korean (한국어), Japanese (日本語), Mandarin Chinese (中文)
 - **7 in-depth articles** — Nuclear physics, heliotechnology, ATES, Stirling engines, solar agriculture, scientific legacy, publications
 - **Dark/light mode** — Persisted via localStorage across all pages
-- **Fully responsive** — Mobile-first design with hamburger navigation
+- **Fully responsive** — Hamburger menu on mobile, compact language dropdown with country flags
 - **Photo gallery** — 18 historical photographs with notable figures (Keldysh, Kapitsa, Paton, Kirillin, U.S. Senate delegation)
 - **PDF source documents** — LBL workshop proceedings, NASA reports, U.S. military technical report ADA357675
 - **Scroll animations** — IntersectionObserver-based reveal effects
