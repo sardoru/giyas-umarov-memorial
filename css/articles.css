@@ -230,7 +230,13 @@ blockquote {
 .pub-item:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); }
 .pub-item__year { font-size: 0.75rem; font-weight: 700; color: var(--gold); letter-spacing: 0.05em; }
 .pub-item__title { font-weight: 600; margin: 0.25rem 0 0.4rem; color: var(--text); }
-.pub-item__journal { font-size: 0.875rem; font-style: italic; color: var(--text-secondary); }
+.pub-item__journal { font-size: 0.875rem; font-style: italic; color: var(--text-secondary); margin-bottom: 0; }
+.pub-item__pdf {
+  display: inline-block; font-size: 0.8rem; font-style: normal; font-weight: 600;
+  color: var(--gold); margin-top: 0.4rem;
+}
+.pub-item__pdf:hover { color: var(--amber); text-decoration: underline; }
+.pub-item__pdf + .pub-item__pdf { margin-left: 1rem; }
 
 /* Navigation cards */
 .nav-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
