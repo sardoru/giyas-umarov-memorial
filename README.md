@@ -20,7 +20,7 @@ Over five decades, he supervised 54 doctoral dissertations, authored 4 monograph
 
 ```
 giyas-umarov.com/
-├── index.html                    # Main single-page memorial (5 languages via JS i18n)
+├── index.html                    # Main single-page memorial (8 languages via JS i18n)
 ├── articles/                     # English article pages
 │   ├── nuclear-physics.html      #   Landau debate, beta-spectroscopy, plasma research
 │   ├── heliotechnology.html      #   Solar energy, Large Solar Furnace, Heliotechnika
@@ -33,6 +33,9 @@ giyas-umarov.com/
 ├── uz/articles/                  # Uzbek translations (7 pages)
 ├── fr/articles/                  # French translations (7 pages)
 ├── es/articles/                  # Spanish translations (7 pages)
+├── ko/articles/                  # Korean translations (7 pages)
+├── ja/articles/                  # Japanese translations (7 pages)
+├── zh/articles/                  # Mandarin Chinese translations (7 pages)
 ├── css/articles.css              # Shared article stylesheet
 ├── js/articles.js                # Shared article JS (theme, mobile menu, scroll reveals)
 ├── assets/docs/                  # PDF source documents
@@ -49,11 +52,11 @@ giyas-umarov.com/
 └── favicon.svg                   # Site favicon
 ```
 
-**36 pages total** — 1 homepage + 35 article pages (7 articles × 5 languages)
+**57 pages total** — 1 homepage + 56 article pages (7 articles × 8 languages)
 
 ## Features
 
-- **5 languages** — English, Russian (Русский), Uzbek (O'zbek), French (Français), Spanish (Español)
+- **8 languages** — English, Russian (Русский), Uzbek (O'zbek), French (Français), Spanish (Español), Korean (한국어), Japanese (日本語), Mandarin Chinese (中文)
 - **7 in-depth articles** — Nuclear physics, heliotechnology, ATES, Stirling engines, solar agriculture, scientific legacy, publications
 - **Dark/light mode** — Persisted via localStorage across all pages
 - **Fully responsive** — Mobile-first design with hamburger navigation
@@ -69,9 +72,9 @@ Every page includes professional SEO optimization:
 - **Structured data** — JSON-LD schemas (Person, WebSite, Article) with multilingual names
 - **Open Graph** — Full `og:title`, `og:description`, `og:image`, `og:locale` per page
 - **Twitter Cards** — `summary_large_image` with language-specific content
-- **Hreflang** — Complete `hreflang` annotations (en/ru/uz/fr/es + x-default) on all pages
+- **Hreflang** — Complete `hreflang` annotations (en/ru/uz/fr/es/ko/ja/zh + x-default) on all pages
 - **Canonical URLs** — Self-referencing canonical on every page
-- **XML Sitemap** — All 36 URLs with cross-language hreflang references
+- **XML Sitemap** — All 57 URLs with cross-language hreflang references
 - **robots.txt** — Allows all crawlers with sitemap reference
 
 ### Target Keywords
@@ -83,6 +86,9 @@ Every page includes professional SEO optimization:
 | Uzbek | Giyas Umarov, geliotexnika O'zbekiston, Katta quyosh pechi Toshkent, akademik Umarov |
 | French | Oumarov héliotechnologie, Grand Four Solaire Tachkent, énergie solaire Ouzbékistan |
 | Spanish | Umarov heliotecnología, Gran Horno Solar Taskent, energía solar Uzbekistán |
+| Korean | 기야스 우마로프, 태양열기술 우즈베키스탄, 대형 태양로 타슈켄트, 중앙아시아 물리학자 |
+| Japanese | ギヤス・ウマロフ, 太陽熱技術 ウズベキスタン, 大型太陽炉 タシケント, 中央アジア物理学者 |
+| Chinese | 吉亚斯·乌马罗夫, 太阳能技术 乌兹别克斯坦, 大型太阳炉 塔什干, 中亚物理学家 |
 
 ## Key Achievements
 
