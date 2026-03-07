@@ -23,44 +23,47 @@ giyas-umarov.com/
 ├── index.html                    # Main single-page memorial (8 languages via JS i18n)
 ├── articles/                     # English article pages
 │   ├── nuclear-physics.html      #   Landau debate, beta-spectroscopy, plasma research
+│   ├── neutrino.html             #   The 1949 JETP paper — β-decay of RaE, neutrino mass
 │   ├── heliotechnology.html      #   Solar energy, Large Solar Furnace, Heliotechnika
 │   ├── aquifer-thermal-storage.html  # ATES — the 1971 foundation
 │   ├── stirling-engines.html     #   Solar Stirling engine research (1972–1978)
 │   ├── agricultural-solar.html   #   PCSR seed treatment, solar drying, desalination
 │   ├── scientific-legacy.html    #   Global influence, awards, institutional roles
 │   └── publications.html         #   Complete bibliography & source documents
-├── ru/articles/                  # Russian translations (7 pages)
-├── uz/articles/                  # Uzbek translations (7 pages)
-├── fr/articles/                  # French translations (7 pages)
-├── es/articles/                  # Spanish translations (7 pages)
-├── ko/articles/                  # Korean translations (7 pages)
-├── ja/articles/                  # Japanese translations (7 pages)
-├── zh/articles/                  # Mandarin Chinese translations (7 pages)
+├── ru/articles/                  # Russian translations (8 pages)
+├── uz/articles/                  # Uzbek translations (8 pages)
+├── fr/articles/                  # French translations (8 pages)
+├── es/articles/                  # Spanish translations (8 pages)
+├── ko/articles/                  # Korean translations (8 pages)
+├── ja/articles/                  # Japanese translations (8 pages)
+├── zh/articles/                  # Mandarin Chinese translations (8 pages)
 ├── css/articles.css              # Shared article stylesheet
 ├── js/articles.js                # Shared article JS (theme, mobile menu, scroll reveals)
-├── assets/docs/                  # PDF source documents
-│   ├── thermal-energy-storage-aquifers-lbl-workshop.pdf
-│   ├── military-report-ADA357675.pdf
-│   ├── nasa-solar-energy-report-73151640.pdf
-│   ├── stirling-engine-design-manual-nasa.pdf
-│   └── ... (12 PDFs total)
+├── assets/
+│   ├── docs/                     # PDF source documents (12 PDFs)
+│   └── img/neutrino/             # Original 1949 JETP article scans
 ├── gallery/                      # Historical photographs
 ├── images/                       # Site images
-├── robots.txt                    # Search engine crawl directives
+├── llms.txt                      # AI agent overview (llmstxt.org spec)
+├── llms-full.txt                 # AI agent full content
+├── .well-known/ai-context.json   # Machine-readable structured data
+├── vercel.json                   # Vercel headers config
+├── robots.txt                    # Search engine crawl directives + AI context pointers
 ├── sitemap.xml                   # XML sitemap with hreflang annotations
 ├── og-image.png                  # Open Graph social sharing image
 └── favicon.svg                   # Site favicon
 ```
 
-**57 pages total** — 1 homepage + 56 article pages (7 articles × 8 languages)
+**65 pages total** — 1 homepage + 64 article pages (8 articles × 8 languages)
 
 ## Features
 
 - **8 languages** — English, Russian (Русский), Uzbek (O'zbek), French (Français), Spanish (Español), Korean (한국어), Japanese (日本語), Mandarin Chinese (中文)
-- **7 in-depth articles** — Nuclear physics, heliotechnology, ATES, Stirling engines, solar agriculture, scientific legacy, publications
+- **8 in-depth articles** — Nuclear physics, the 1949 neutrino paper, heliotechnology, ATES, Stirling engines, solar agriculture, scientific legacy, publications
 - **Dark/light mode** — Persisted via localStorage across all pages
 - **Fully responsive** — Hamburger menu on mobile, compact language dropdown with country flags
 - **Photo gallery** — 18 historical photographs with notable figures (Keldysh, Kapitsa, Paton, Kirillin, U.S. Senate delegation)
+- **Primary source scans** — Original 1949 JETP article with click-to-zoom lightbox
 - **PDF source documents** — LBL workshop proceedings, NASA reports, U.S. military technical report ADA357675
 - **Scroll animations** — IntersectionObserver-based reveal effects
 
@@ -74,7 +77,8 @@ Every page includes professional SEO optimization:
 - **Twitter Cards** — `summary_large_image` with language-specific content
 - **Hreflang** — Complete `hreflang` annotations (en/ru/uz/fr/es/ko/ja/zh + x-default) on all pages
 - **Canonical URLs** — Self-referencing canonical on every page
-- **XML Sitemap** — All 57 URLs with cross-language hreflang references
+- **XML Sitemap** — All 65 URLs with cross-language hreflang references
+- **AI agent files** — `llms.txt`, `llms-full.txt`, `.well-known/ai-context.json` for LLM discoverability
 - **robots.txt** — Allows all crawlers with sitemap reference
 
 ### Target Keywords
