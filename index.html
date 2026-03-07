@@ -214,35 +214,85 @@ a:hover { color: var(--amber); }
 }
 .nav-links a:hover { color: var(--gold); background: rgba(212,165,32,0.08); }
 
-/* Language switcher */
-.lang-switcher {
-  display: flex; align-items: center; gap: 2px;
-  margin-left: 0.5rem; flex-shrink: 0;
-}
-.lang-btn {
-  background: none; border: 1px solid var(--border); border-radius: 4px;
-  color: var(--text-secondary); font-size: 0.72rem; font-weight: 700;
-  padding: 0.25rem 0.4rem; cursor: pointer; letter-spacing: 0.03em;
-  transition: all var(--transition); font-family: var(--font-sans);
-  line-height: 1;
-}
-.lang-btn:hover { color: var(--gold); border-color: var(--gold); }
-.lang-btn.active {
-  background: var(--gold); color: var(--navy); border-color: var(--gold);
+/* Nav actions */
+.nav-actions {
+  display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;
 }
 
+/* Language dropdown */
+.lang-dropdown { position: relative; }
+.lang-dropdown__trigger {
+  display: flex; align-items: center; gap: 0.3rem;
+  background: none; border: 1px solid var(--border); border-radius: 6px;
+  padding: 0.35rem 0.6rem; cursor: pointer;
+  color: var(--text-secondary); font-size: 0.82rem; font-weight: 700;
+  font-family: var(--font-sans); transition: all var(--transition);
+}
+.lang-dropdown__trigger:hover { color: var(--gold); border-color: var(--gold); }
+.lang-dropdown__flag { font-size: 1rem; line-height: 1; }
+.lang-dropdown__arrow { font-size: 0.7rem; opacity: 0.6; transition: transform 0.2s; }
+.lang-dropdown.open .lang-dropdown__arrow { transform: rotate(180deg); }
+.lang-dropdown__menu {
+  display: none; position: absolute; top: calc(100% + 6px); right: 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.3rem; min-width: 160px;
+  box-shadow: var(--shadow-md); z-index: 1001;
+}
+.lang-dropdown.open .lang-dropdown__menu { display: block; }
+.lang-btn {
+  display: flex; align-items: center; gap: 0.5rem; width: 100%;
+  background: none; border: none; border-radius: 6px;
+  color: var(--text-secondary); font-size: 0.85rem; font-weight: 400;
+  padding: 0.5rem 0.7rem; cursor: pointer;
+  font-family: var(--font-sans); transition: all var(--transition);
+}
+.lang-btn:hover { color: var(--gold); background: rgba(212,165,32,0.08); }
+.lang-btn.active { color: var(--gold); font-weight: 700; }
+.lang-flag { font-size: 1.1rem; }
+
+/* Theme toggle */
 .theme-toggle {
   background: none; border: 2px solid var(--border); border-radius: 50%;
-  width: 44px; height: 44px; cursor: pointer; font-size: 1.2rem;
+  width: 40px; height: 40px; cursor: pointer; font-size: 1.1rem;
   display: flex; align-items: center; justify-content: center;
   color: var(--gold); transition: all var(--transition); flex-shrink: 0;
-  margin-left: 0.5rem;
 }
 .theme-toggle:hover { border-color: var(--gold); background: rgba(212,165,32,0.1); }
 
+/* Hamburger */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  width: 40px; height: 40px; padding: 8px;
+}
+.hamburger span {
+  display: block; height: 2px; background: var(--text);
+  border-radius: 2px; transition: all 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu {
+  display: none; position: fixed; top: 60px; left: 0; right: 0;
+  background: var(--bg-card); border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem; z-index: 999;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  flex-direction: column;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu__link {
+  padding: 0.75rem 1rem; color: var(--text); font-size: 0.95rem;
+  border-radius: 8px; transition: all var(--transition);
+}
+.mobile-menu__link:hover { color: var(--gold); background: rgba(212,165,32,0.08); }
+
 @media (max-width: 900px) {
-  .nav-links a.nav-link { display: none; }
+  .nav-links { display: none; }
   .nav-brand { font-size: 0.95rem; }
+  .hamburger { display: flex; }
 }
 
 /* ===== HERO ===== */
@@ -451,20 +501,43 @@ blockquote cite { display: block; margin-top: 0.5rem; font-style: normal; font-w
       <a href="#accolades" class="nav-link" data-i18n="nav_accolades">Accolades</a>
       <a href="#publications" class="nav-link" data-i18n="nav_publications">Works</a>
       <a href="#gallery" class="nav-link" data-i18n="nav_gallery">Gallery</a>
-      <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ru">RU</button>
-        <button class="lang-btn" data-lang="uz">UZ</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-        <button class="lang-btn" data-lang="ko">KO</button>
-        <button class="lang-btn" data-lang="ja">JA</button>
-        <button class="lang-btn" data-lang="zh">ZH</button>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-dropdown__trigger" aria-label="Select language">
+          <span class="lang-dropdown__flag" id="currentFlag">🇬🇧</span>
+          <span class="lang-dropdown__label" id="currentLangLabel">EN</span>
+          <span class="lang-dropdown__arrow">▾</span>
+        </button>
+        <div class="lang-dropdown__menu">
+          <button class="lang-btn active" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          <button class="lang-btn" data-lang="ru"><span class="lang-flag">🇷🇺</span> Русский</button>
+          <button class="lang-btn" data-lang="uz"><span class="lang-flag">🇺🇿</span> O'zbek</button>
+          <button class="lang-btn" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+          <button class="lang-btn" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+          <button class="lang-btn" data-lang="ko"><span class="lang-flag">🇰🇷</span> 한국어</button>
+          <button class="lang-btn" data-lang="ja"><span class="lang-flag">🇯🇵</span> 日本語</button>
+          <button class="lang-btn" data-lang="zh"><span class="lang-flag">🇨🇳</span> 中文</button>
+        </div>
       </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☀️</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#biography" class="mobile-menu__link" data-i18n="nav_biography">Biography</a>
+  <a href="#nuclear" class="mobile-menu__link" data-i18n="nav_nuclear">Nuclear Physics</a>
+  <a href="#solar" class="mobile-menu__link" data-i18n="nav_solar">Solar Energy</a>
+  <a href="#agriculture" class="mobile-menu__link" data-i18n="nav_agriculture">Agriculture</a>
+  <a href="#aral" class="mobile-menu__link" data-i18n="nav_aral">Aral Sea</a>
+  <a href="#culture" class="mobile-menu__link" data-i18n="nav_culture">Culture</a>
+  <a href="#accolades" class="mobile-menu__link" data-i18n="nav_accolades">Accolades</a>
+  <a href="#publications" class="mobile-menu__link" data-i18n="nav_publications">Works</a>
+  <a href="#gallery" class="mobile-menu__link" data-i18n="nav_gallery">Gallery</a>
+</div>
 
 <!-- Hero -->
 <section class="hero" id="hero">
@@ -2177,6 +2250,12 @@ zh: {
 };
 
 // ===== i18n ENGINE =====
+const langMeta = {
+  en: { flag: '🇬🇧', label: 'EN' }, ru: { flag: '🇷🇺', label: 'RU' },
+  uz: { flag: '🇺🇿', label: 'UZ' }, fr: { flag: '🇫🇷', label: 'FR' },
+  es: { flag: '🇪🇸', label: 'ES' }, ko: { flag: '🇰🇷', label: 'KO' },
+  ja: { flag: '🇯🇵', label: 'JA' }, zh: { flag: '🇨🇳', label: 'ZH' }
+};
 function setLanguage(lang) {
   if (!T[lang]) return;
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -2185,11 +2264,17 @@ function setLanguage(lang) {
       el.innerHTML = T[lang][key];
     }
   });
-  const langMap = {en:'en',ru:'ru',uz:'uz',fr:'fr',es:'es',ko:'ko',ja:'ja',zh:'zh'};
-  document.documentElement.lang = langMap[lang] || 'en';
+  document.documentElement.lang = lang;
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
+  const meta = langMeta[lang];
+  if (meta) {
+    document.getElementById('currentFlag').textContent = meta.flag;
+    document.getElementById('currentLangLabel').textContent = meta.label;
+  }
+  const dd = document.getElementById('langDropdown');
+  if (dd) dd.classList.remove('open');
   localStorage.setItem('lang', lang);
 }
 
@@ -2200,8 +2285,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 // Restore language
 const savedLang = localStorage.getItem('lang') || 'en';
-if (savedLang !== 'en') setLanguage(savedLang);
-else document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === 'en'));
+setLanguage(savedLang);
 
 // Theme toggle
 const toggle = document.getElementById('themeToggle');
@@ -2218,15 +2302,40 @@ toggle.addEventListener('click', () => {
   updateIcon();
 });
 
+// Hamburger mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-menu__link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// Language dropdown
+const langDropdown = document.getElementById('langDropdown');
+const langTrigger = langDropdown.querySelector('.lang-dropdown__trigger');
+langTrigger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  langDropdown.classList.toggle('open');
+});
+document.addEventListener('click', (e) => {
+  if (!langDropdown.contains(e.target)) langDropdown.classList.remove('open');
+});
+
 // Fade-in on scroll with fallback
 const faders = document.querySelectorAll('.fade-in');
 if ('IntersectionObserver' in window) {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.01, rootMargin: '0px 0px 50px 0px' });
   faders.forEach(f => obs.observe(f));
 }
-setTimeout(() => { faders.forEach(f => f.classList.add('visible')); }, 1500);
+setTimeout(() => { faders.forEach(f => f.classList.add('visible')); }, 2500);
 </script>
 </body>
 </html>
