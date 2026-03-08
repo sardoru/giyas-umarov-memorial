@@ -20,7 +20,7 @@ Over five decades, he supervised 54 doctoral dissertations, authored 4 monograph
 
 ```
 giyas-umarov.com/
-├── index.html                    # Main single-page memorial (8 languages via JS i18n)
+├── index.html                    # Main single-page memorial (13 languages via JS i18n)
 ├── articles/                     # English article pages
 │   ├── nuclear-physics.html      #   Landau debate, beta-spectroscopy, plasma research
 │   ├── neutrino.html             #   The 1949 JETP paper — β-decay of RaE, neutrino mass
@@ -37,6 +37,11 @@ giyas-umarov.com/
 ├── ko/articles/                  # Korean translations (8 pages)
 ├── ja/articles/                  # Japanese translations (8 pages)
 ├── zh/articles/                  # Mandarin Chinese translations (8 pages)
+├── hi/articles/                  # Hindi translations (8 pages)
+├── ar/articles/                  # Arabic translations (8 pages, RTL)
+├── id/articles/                  # Indonesian translations (8 pages)
+├── ms/articles/                  # Malay translations (8 pages)
+├── de/articles/                  # German translations (8 pages)
 ├── css/articles.css              # Shared article stylesheet
 ├── js/articles.js                # Shared article JS (theme, mobile menu, scroll reveals)
 ├── assets/
@@ -54,11 +59,11 @@ giyas-umarov.com/
 └── favicon.svg                   # Site favicon
 ```
 
-**65 pages total** — 1 homepage + 64 article pages (8 articles × 8 languages)
+**105 pages total** — 1 homepage + 104 article pages (8 articles × 13 languages)
 
 ## Features
 
-- **8 languages** — English, Russian (Русский), Uzbek (O'zbek), French (Français), Spanish (Español), Korean (한국어), Japanese (日本語), Mandarin Chinese (中文)
+- **13 languages** — English, Russian (Русский), Uzbek (O'zbek), French (Français), Spanish (Español), Korean (한국어), Japanese (日本語), Mandarin Chinese (中文), Hindi (हिन्दी), Arabic (العربية, RTL), Indonesian (Bahasa Indonesia), Malay (Bahasa Melayu), German (Deutsch)
 - **8 in-depth articles** — Nuclear physics, the 1949 neutrino paper, heliotechnology, ATES, Stirling engines, solar agriculture, scientific legacy, publications
 - **Dark/light mode** — Persisted via localStorage across all pages
 - **Fully responsive** — Hamburger menu on mobile, compact language dropdown with country flags
@@ -75,9 +80,9 @@ Every page includes professional SEO optimization:
 - **Structured data** — JSON-LD schemas (Person, WebSite, Article) with multilingual names
 - **Open Graph** — Full `og:title`, `og:description`, `og:image`, `og:locale` per page
 - **Twitter Cards** — `summary_large_image` with language-specific content
-- **Hreflang** — Complete `hreflang` annotations (en/ru/uz/fr/es/ko/ja/zh + x-default) on all pages
+- **Hreflang** — Complete `hreflang` annotations (en/ru/uz/fr/es/ko/ja/zh/hi/ar/id/ms/de + x-default) on all pages
 - **Canonical URLs** — Self-referencing canonical on every page
-- **XML Sitemap** — All 65 URLs with cross-language hreflang references
+- **XML Sitemap** — All 105 URLs with cross-language hreflang references
 - **AI agent files** — `llms.txt`, `llms-full.txt`, `.well-known/ai-context.json` for LLM discoverability
 - **robots.txt** — Allows all crawlers with sitemap reference
 
@@ -93,6 +98,11 @@ Every page includes professional SEO optimization:
 | Korean | 기야스 우마로프, 태양열기술 우즈베키스탄, 대형 태양로 타슈켄트, 중앙아시아 물리학자 |
 | Japanese | ギヤス・ウマロフ, 太陽熱技術 ウズベキスタン, 大型太陽炉 タシケント, 中央アジア物理学者 |
 | Chinese | 吉亚斯·乌马罗夫, 太阳能技术 乌兹别克斯坦, 大型太阳炉 塔什干, 中亚物理学家 |
+| Hindi | गियास उमारोव, हेलियोटेक्नोलॉजी उज़्बेकिस्तान, बड़ी सौर भट्ठी ताशकंद, नाभिकीय भौतिक विज्ञानी |
+| Arabic | غياث أوماروف, تكنولوجيا الطاقة الشمسية أوزبكستان, الفرن الشمسي الكبير طشقند, فيزيائي نووي |
+| Indonesian | Giyas Umarov, helioteknologi Uzbekistan, Tungku Surya Besar Tashkent, fisikawan nuklir |
+| Malay | Giyas Umarov, helioteknologi Uzbekistan, Relau Suria Besar Tashkent, ahli fizik nuklear |
+| German | Giyas Umarow, Heliotechnologie Usbekistan, Großer Solarofen Taschkent, Kernphysiker |
 
 ## Key Achievements
 
